@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using mshtml;
+﻿using mshtml;
 
 namespace MyHTMLEditor
 {
@@ -11,7 +6,7 @@ namespace MyHTMLEditor
     {
         public static HTMLDocument doc;
 
-        public static void bold()
+        public static void Bold()
         {
             if (doc != null)
             {
@@ -67,7 +62,6 @@ namespace MyHTMLEditor
             }
         }
 
-
         public static void InsertOrderedList()
         {
             if (doc != null)
@@ -99,7 +93,5 @@ namespace MyHTMLEditor
                 doc.execCommand("Indent", false, null);
             }
         }
-
-
     }
 }

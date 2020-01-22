@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyHTMLEditor
+﻿namespace MyHTMLEditor
 {
     public static class DialogBox
     {
@@ -26,9 +20,9 @@ namespace MyHTMLEditor
                     col.R = colorDialog.Color.R;
                 }
             }
+
             return col;
         }
-
 
         public static string SelectFile()
         {
@@ -46,15 +40,12 @@ namespace MyHTMLEditor
                 }
                 return "";
             }
-
         }
-
 
         public static string SaveFile()
         {
             using (System.Windows.Forms.SaveFileDialog SaveFileDialog = new System.Windows.Forms.SaveFileDialog())
             {
-
                 SaveFileDialog.InitialDirectory = @"C:\";
                 SaveFileDialog.Filter = "txt files (*.htm)|*.htm|All files (*.html)|*.html";
                 SaveFileDialog.FilterIndex = 2;
@@ -66,9 +57,6 @@ namespace MyHTMLEditor
                 }
                 return "";                
             }
-
         }
-
-
     }
 }

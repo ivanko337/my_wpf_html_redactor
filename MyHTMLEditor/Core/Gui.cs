@@ -10,20 +10,20 @@ namespace MyHTMLEditor
     {
         public static MyWebBrowser webBrowser;
 
-        public static List<Items> FormatComboboxData
+        public static List<ComboBoxItem> FormatComboboxData
         {
             get
             {
-                List<Items> list = new List<Items>();
-                list.Add(new Items("<p>", "Paragraph"));
-                list.Add(new Items("<h1>", "Heading 1"));
-                list.Add(new Items("<h2>", "Heading 2"));
-                list.Add(new Items("<h3>", "Heading 3"));
-                list.Add(new Items("<h4>", "Heading 4"));
-                list.Add(new Items("<h5>", "Heading 5"));
-                list.Add(new Items("<h6>", "Heading 6"));
-                list.Add(new Items("<address>", "Adress"));
-                list.Add(new Items("<pre>", "Preformat"));
+                List<ComboBoxItem> list = new List<ComboBoxItem>();
+                list.Add(new ComboBoxItem("<p>", "Paragraph"));
+                list.Add(new ComboBoxItem("<h1>", "Heading 1"));
+                list.Add(new ComboBoxItem("<h2>", "Heading 2"));
+                list.Add(new ComboBoxItem("<h3>", "Heading 3"));
+                list.Add(new ComboBoxItem("<h4>", "Heading 4"));
+                list.Add(new ComboBoxItem("<h5>", "Heading 5"));
+                list.Add(new ComboBoxItem("<h6>", "Heading 6"));
+                list.Add(new ComboBoxItem("<address>", "Adress"));
+                list.Add(new ComboBoxItem("<pre>", "Preformat"));
                 return list;
             }
         }
@@ -110,7 +110,7 @@ namespace MyHTMLEditor
 
         public static void FormatCombobox(ComboBox сomboboxFormat)
         {
-            string id = ((Items)(сomboboxFormat.SelectedItem)).Value;
+            string id = ((ComboBoxItem)(сomboboxFormat.SelectedItem)).Value;
 
             webBrowser.doc = webBrowser.webBrowser.Document as HTMLDocument;
             if (webBrowser.doc != null)

@@ -69,7 +69,7 @@ namespace MyHTMLEditor.View
 
         private void SettingsBold_Click(object sender, RoutedEventArgs e)
         {
-            Format.bold();
+            Format.Bold();
         }
 
         private void SettingsItalic_Click(object sender, RoutedEventArgs e)

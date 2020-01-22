@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MyHTMLEditor
 {
-    public class Items
+    public class ComboBoxItem
     {
-        public Items()
+        public ComboBoxItem()
         { }
 
-        public Items(string id, string value)
+        public ComboBoxItem(string id, string value)
         {
             this.Value = value;
             this.Id = id;

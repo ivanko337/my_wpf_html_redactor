@@ -120,7 +120,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FolderImage.bmp" />
     <None Include="Resources\folder.png" />
     <Content Include="Resources\New.html" />
   </ItemGroup>

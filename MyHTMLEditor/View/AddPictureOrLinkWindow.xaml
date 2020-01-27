@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyHTMLEditor.View"
         mc:Ignorable="d"
         Title="AddPictureWindow" Height="226" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <BitmapImage x:Key="folder" UriSource="/MyHTMLEditor;component/Resources/folder.png" />
+    </Window.Resources>
     <StackPanel>
-        <Label Content="Enter text to display for the image:" Margin="15 15 0 0" />
+        <Label Content="Enter text to display:" Margin="15 15 0 0" /> <!--for the image-->
         <TextBox x:Name="descriptionTextBox" Margin="15 0 15 0" />
 
         <Label Content="Enter file path:" Margin="15 15 0 0" x:Name="label" />
@@ -18,7 +20,7 @@
             </Grid.ColumnDefinitions>
             <TextBox x:Name="pathTextBox" Grid.Column="0" />
             <Button Grid.Column="1" Margin="5 0 0 0" Padding="3" Click="Button_Click">
-                <Image Source="/MyHTMLEditor;component/Resources/folder.png" />
+                <Image Source="{StaticResource folder}" />
             </Button>
         </Grid>
 

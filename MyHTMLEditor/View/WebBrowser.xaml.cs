@@ -63,8 +63,8 @@ namespace MyHTMLEditor.View
                 webBrowser.Navigate(url);
             }
 
-
             doc = webBrowser.Document as HTMLDocument;
+            doc.charset = "utf-8";
             Format.doc = doc;
         }
 

@@ -77,7 +77,7 @@ namespace MyHTMLEditor
             wnd.ShowDialog();
         }
 
-        public static bool RibbonButtonSave()
+        public static bool ButtonSave()
         {
             dynamic doc = webBrowser.doc;
             var htmlText = doc.documentElement.InnerHtml;
@@ -126,7 +126,7 @@ namespace MyHTMLEditor
 
         public static void NewDocumentFile()
         {
-            webBrowser.NewWb(DialogBox.SelectFile());    
+            webBrowser.NewWb(DialogBox.SelectFile());
         }
     }
 }

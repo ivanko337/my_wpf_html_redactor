@@ -28,9 +28,7 @@
         {
             using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = @"C:\";
-                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-                openFileDialog.FilterIndex = 2; //Dans ce cas ci le filtre *.* sera sÃƒÂ©lectionnÃƒÂ©
+                openFileDialog.Filter = "html files (*.html)|*.html|All files (*.*)|*.*";
                 openFileDialog.RestoreDirectory = true;
 
                 System.Windows.Forms.DialogResult result = openFileDialog.ShowDialog();
@@ -38,6 +36,7 @@
                 {
                     return openFileDialog.FileName;
                 }
+
                 return "";
             }
         }
@@ -47,7 +46,7 @@
             using (System.Windows.Forms.SaveFileDialog SaveFileDialog = new System.Windows.Forms.SaveFileDialog())
             {
                 SaveFileDialog.InitialDirectory = @"C:\";
-                SaveFileDialog.Filter = "txt files (*.htm)|*.htm|All files (*.html)|*.html";
+                SaveFileDialog.Filter = "html files (*.html)|*.html";
                 SaveFileDialog.FilterIndex = 2;
                 SaveFileDialog.RestoreDirectory = true;
 

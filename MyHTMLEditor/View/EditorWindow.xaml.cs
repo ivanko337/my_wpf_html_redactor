@@ -34,7 +34,7 @@ namespace MyHTMLEditor.View
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            isFileSaved = Gui.RibbonButtonSave();
+            isFileSaved = Gui.ButtonSave();
         }
 
         private void paragraphCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)

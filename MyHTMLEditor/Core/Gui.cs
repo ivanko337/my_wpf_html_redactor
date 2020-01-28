@@ -48,8 +48,14 @@ namespace MyHTMLEditor
             webBrowser.doc = webBrowser.webBrowser.Document as HTMLDocument;
             if (webBrowser.doc != null)
             {
-                System.Windows.Media.Color col = DialogBox.Pick();
-                string colorstr = string.Format("#{0:X2}{1:X2}{2:X2}", col.R, col.G, col.B);
+                System.Windows.Media.Color? col = DialogBox.Pick();
+
+                if (col == null)
+                {
+                    return;
+                }
+
+                string colorstr = string.Format("#{0:X2}{1:X2}{2:X2}", col.Value.R, col.Value.G, col.Value.B);
                 webBrowser.doc.execCommand("ForeColor", false, colorstr);
             }
         }
@@ -59,8 +65,14 @@ namespace MyHTMLEditor
             webBrowser.doc = webBrowser.webBrowser.Document as HTMLDocument;
             if (webBrowser.doc != null)
             {
-                System.Windows.Media.Color col = DialogBox.Pick();
-                string colorstr = string.Format("#{0:X2}{1:X2}{2:X2}", col.R, col.G, col.B);
+                System.Windows.Media.Color? col = DialogBox.Pick();
+
+                if (col == null)
+                {
+                    return;
+                }
+
+                string colorstr = string.Format("#{0:X2}{1:X2}{2:X2}", col.Value.R, col.Value.G, col.Value.B);
                 webBrowser.doc.body.style.background = colorstr;
             }
         }

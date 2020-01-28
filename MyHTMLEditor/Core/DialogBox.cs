@@ -2,7 +2,7 @@
 {
     public static class DialogBox
     {
-        public static System.Windows.Media.Color Pick()
+        public static System.Windows.Media.Color? Pick()
         {
             System.Windows.Media.Color col = new System.Windows.Media.Color();
 
@@ -18,6 +18,10 @@
                     col.B = colorDialog.Color.B;
                     col.G = colorDialog.Color.G;
                     col.R = colorDialog.Color.R;
+                }
+                else
+                {
+                    return null;
                 }
             }
 

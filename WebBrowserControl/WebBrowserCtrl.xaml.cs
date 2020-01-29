@@ -14,22 +14,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyHTMLEditor.View
+namespace WebBrowserControl
 {
     /// <summary>
-    /// Interaction logic for HTMLRedactor.xaml
+    /// Interaction logic for WebBrowserControl.xaml
     /// </summary>
-    public partial class MyWebBrowser : UserControl
+    public partial class WebBrowserCtrl : UserControl
     {
         public HTMLDocument doc;
         public WebBrowser webBrowser;
 
-        public MyWebBrowser()
+        public WebBrowserCtrl()
         {
             InitializeComponent();
         }
 
-        public void NewWb(string url)
+        public void NewWb(string url, HTMLDocument formatDoc)
         {
             if (webBrowser != null)
             {
@@ -47,15 +47,15 @@ namespace MyHTMLEditor.View
             webBrowser.LoadCompleted += Completed;
             htmlReactorGrid.Children.Add(webBrowser);
 
-            Script.HideScriptErrors(webBrowser, true);
+            Scripts.HideScriptErrors(webBrowser, true);
 
             if (url == "")
             {
-                string s = Properties.Resources.NewDocument;
-                webBrowser.NavigateToString(s);
+                webBrowser.NavigateToString(Properties.Resources.NewDocument);
                 doc = webBrowser.Document as HTMLDocument;
                 doc.designMode = "On";
-                Format.doc = doc;
+                doc.charset = "utf-8";
+                formatDoc = doc;
                 return;
             }
             else
@@ -65,7 +65,7 @@ namespace MyHTMLEditor.View
 
             doc = webBrowser.Document as HTMLDocument;
             doc.charset = "utf-8";
-            Format.doc = doc;
+            formatDoc = doc;
         }
 
         private void Completed(object sender, NavigationEventArgs e)

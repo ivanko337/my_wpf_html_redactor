@@ -1,5 +1,6 @@
 ﻿using mshtml;
 using MyHTMLEditor.View;
+using WebBrowserControl;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Controls;
@@ -8,7 +9,7 @@ namespace MyHTMLEditor
 {
     public static class Gui
     {
-        public static MyWebBrowser webBrowser;
+        public static WebBrowserCtrl webBrowser;
 
         public static List<ComboBoxItem> FormatComboboxData
         {
@@ -133,12 +134,12 @@ namespace MyHTMLEditor
 
         public static void NewDocument()
         {
-            webBrowser.NewWb("");
+            webBrowser.NewWb("", Format.doc);
         }
 
         public static void NewDocumentFile()
         {
-            webBrowser.NewWb(DialogBox.SelectFile());
+            webBrowser.NewWb(DialogBox.SelectFile(), Format.doc);
         }
     }
 }

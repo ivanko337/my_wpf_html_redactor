@@ -75,9 +75,6 @@
     <Compile Include="View\EditorWindow.xaml.cs">
       <DependentUpon>EditorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\WebBrowser.xaml.cs">
-      <DependentUpon>WebBrowser.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -114,10 +111,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\WebBrowser.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\folder.png" />
@@ -139,6 +132,12 @@
     <Resource Include="Images\OutIdent.png" />
     <Resource Include="Images\RightAlign.png" />
     <Resource Include="Images\UnderLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebBrowserControl\WebBrowserControl.csproj">
+      <Project>{3b4c6056-f02a-4c0e-ab9d-f08aaa217be6}</Project>
+      <Name>WebBrowserControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -72,18 +72,25 @@ namespace MyHTMLEditor.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;
-        ///&lt;html&gt;&lt;head&gt;
-        ///&lt;meta content=&quot;text/html; charset=ISO-8859-1&quot; http-equiv=&quot;content-type&quot; charset=&quot;utf-8&quot;&gt;&lt;title&gt;new&lt;/title&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta http-equiv=&apos;Content-Type&apos; content=&apos;text/html;charset=UTF-8&apos;&gt;
+        ///    &lt;title&gt;new&lt;/title&gt;
         ///
-        ///&lt;style type=&quot;text/css&quot;&gt;
-        ///p {
-        ///margin-bottom: 0;
-        ///margin-top: 0;
-        ///}
-        ///&lt;/style&gt;
+        ///    &lt;style type=&quot;text/css&quot;&gt;
+        ///        p {
+        ///            margin-bottom: 0;
+        ///            margin-top: 0;
+        ///        }
+        ///        image {
+        ///            width: 100%;
+        ///            height: auto;
+        ///        }
+        ///    &lt;/style&gt;
         ///&lt;/head&gt;
         ///&lt;body&gt;
-        ///&lt;/body&gt;&lt;/html&gt;.
+        ///&lt;/body&gt;
+        ///&lt;/html&gt;.
         /// </summary>
         internal static string NewDocument {
             get {

@@ -18,11 +18,11 @@ namespace MyHTMLEditor.View
     /// <summary>
     /// Interaction logic for EditorWindow.xaml
     /// </summary>
-    public partial class EditorWindow : Window
+    public partial class EditorControl : UserControl
     {
         private bool isFileSaved = false;
 
-        public EditorWindow()
+        public EditorControl()
         {
             InitializeComponent();
         }
@@ -52,7 +52,7 @@ namespace MyHTMLEditor.View
             Gui.FontHeightCombobox(fontHeightCombobox);
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Ctrl_Loaded(object sender, RoutedEventArgs e)
         {
             Gui.webBrowser = htmlRedactor;
             Gui.NewDocument();
@@ -125,23 +125,6 @@ namespace MyHTMLEditor.View
         private void SettingsIdent_Click(object sender, RoutedEventArgs e)
         {
             Format.Indent();
-        }
-
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            if (!isFileSaved)
-            {
-                var result = MessageBox.Show("Файл не сохранён.\nВы уверены, что хотие выйти?", "", MessageBoxButton.YesNo, MessageBoxImage.Information);
-
-                if (result == MessageBoxResult.Yes)
-                {
-                    Application.Current.Shutdown();
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
-            }
         }
 
         private void SettingsFontColor_Click(object sender, RoutedEventArgs e)

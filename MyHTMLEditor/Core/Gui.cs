@@ -1,6 +1,5 @@
 ﻿using mshtml;
 using MyHTMLEditor.View;
-using WebBrowserControl;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Controls;

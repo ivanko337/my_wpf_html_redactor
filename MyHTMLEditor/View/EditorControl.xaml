@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:webBrowser="clr-namespace:WebBrowserControl;assembly=WebBrowserControl"
+        xmlns:local="clr-namespace:MyHTMLEditor.View"
         mc:Ignorable="d" 
         Loaded="Ctrl_Loaded">
     <Grid>
@@ -85,6 +85,6 @@
             </StackPanel>
         </Grid>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" />
-        <webBrowser:WebBrowserCtrl Grid.Row="2" x:Name="htmlRedactor" />
+        <local:WebBrowserCtrl Grid.Row="2" x:Name="htmlRedactor" />
     </Grid>
 </UserControl>

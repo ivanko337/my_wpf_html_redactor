@@ -30,7 +30,17 @@ namespace MyHTMLEditor.View
             InitializeComponent();
         }
 
-        public void NewWb(string url, HTMLDocument formatDoc)
+        public void SetHTML(string html)
+        {
+            NewWb("", Format.doc, html);
+        }
+
+        public string GetHTML()
+        {
+            return this.doc.documentElement.innerHTML;
+        }
+
+        public void NewWb(string url, HTMLDocument formatDoc, string htmlData = null)
         {
             if (webBrowser != null)
             {
@@ -52,7 +62,7 @@ namespace MyHTMLEditor.View
 
             if (url == "")
             {
-                webBrowser.NavigateToString(Properties.Resources.NewDocument);
+                webBrowser.NavigateToString(htmlData ?? Properties.Resources.NewDocument);
                 doc = webBrowser.Document as HTMLDocument;
                 doc.designMode = "On";
                 doc.charset = "utf-8";

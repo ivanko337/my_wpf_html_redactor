@@ -94,11 +94,13 @@ namespace MyHTMLEditor
             dynamic doc = webBrowser.doc;
             var htmlText = doc.documentElement.InnerHtml;
             string path = DialogBox.SaveFile();
+
             if (path != "")
             {
                 File.WriteAllText(path, htmlText);
                 return true;
             }
+
             return false;
         }
 

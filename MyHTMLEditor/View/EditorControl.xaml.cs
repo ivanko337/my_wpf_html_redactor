@@ -22,6 +22,19 @@ namespace MyHTMLEditor.View
     {
         private bool isFileSaved = false;
 
+        public string EditorsHTML
+        {
+            get
+            {
+                return htmlRedactor.GetHTML();
+            }
+            set
+            {
+                htmlRedactor.SetHTML(value);
+            }
+        }
+
+
         public EditorControl()
         {
             InitializeComponent();

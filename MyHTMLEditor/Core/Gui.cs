@@ -97,7 +97,11 @@ namespace MyHTMLEditor
 
             if (path != "")
             {
-                File.WriteAllText(path, htmlText);
+                string imagesRootDir = Misc.GetRootImageDirPath();
+                string html = htmlText.Replace(imagesRootDir.Replace("\\", "/"), "$rootImagesDir$");
+
+                File.WriteAllText(path, html);
+
                 return true;
             }
 

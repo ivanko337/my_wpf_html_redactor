@@ -40,6 +40,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -70,7 +71,7 @@
     <Compile Include="Core\Gui.cs" />
     <Compile Include="Core\HideScriptErrors.cs" />
     <Compile Include="Core\Items.cs" />
-    <Compile Include="Core\Scripts.cs" />
+    <Compile Include="Core\Misc.cs" />
     <Compile Include="View\AddPictureOrLinkWindow.xaml.cs">
       <DependentUpon>AddPictureOrLinkWindow.xaml</DependentUpon>
     </Compile>

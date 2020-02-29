@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace MyHTMLEditor.View
 {
@@ -45,7 +46,8 @@ namespace MyHTMLEditor.View
             if (doc != null)
             {
                 dynamic r = doc.selection.createRange();
-                r.pasteHTML(string.Format(isImg ? @"<img alt=""{1}"" src=""{0}"">" : @"<a href='{0}'target=""_blank"">{1}</a>", pathTextBox.Text, descriptionTextBox.Text));
+                var gg = string.Format(isImg ? @"<img alt=""{1}"" src=""{0}"" width=100% height=auto>" : @"<a href='{0}'target=""_blank"">{1}</a>", pathTextBox.Text, descriptionTextBox.Text);
+                r.pasteHTML(gg);
                 this.Close();
             }
         }
@@ -59,7 +61,7 @@ namespace MyHTMLEditor.View
         {
             using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = @"C:\";
+                openFileDialog.InitialDirectory = Misc.GetRootImageDirPath(); //@"C:\"
                 openFileDialog.Filter = isImg ? "jpg files (*.jpg)|*.jpg|png files (*.png)|*.png|gif files (*.gif)|*.gif|All files (*.*)|*.*" : "All files (*.*)|*.*";
                 openFileDialog.RestoreDirectory = true;
 

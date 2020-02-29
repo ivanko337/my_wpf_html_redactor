@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MyHTMLEditor;
+using System.IO;
 
 namespace MyHTMLEditor.View
 {
@@ -40,7 +41,15 @@ namespace MyHTMLEditor.View
             return this.doc.documentElement.innerHTML;
         }
 
-        public void NewWb(string url, HTMLDocument formatDoc, string htmlData = null)
+        private string GetCorrectHTML(string html)
+        {
+            string rootImagesDir = Misc.GetRootImageDirPath();
+            string newHtml = html.Replace("$rootImagesDir$", rootImagesDir.Replace("\\", "/"));
+
+            return newHtml;
+        }
+
+        public void NewWb(string path, HTMLDocument formatDoc, string htmlData = null)
         {
             if (webBrowser != null)
             {
@@ -58,23 +67,16 @@ namespace MyHTMLEditor.View
             webBrowser.LoadCompleted += Completed;
             htmlReactorGrid.Children.Add(webBrowser);
 
-            Scripts.HideScriptErrors(webBrowser, true);
+            Misc.HideScriptErrors(webBrowser, true);
 
-            if (url == "")
+            if (path != "")
             {
-                webBrowser.NavigateToString(htmlData ?? Properties.Resources.NewDocument);
-                doc = webBrowser.Document as HTMLDocument;
-                doc.designMode = "On";
-                doc.charset = "utf-8";
-                formatDoc = doc;
-                return;
-            }
-            else
-            {
-                webBrowser.Navigate(url);
+                htmlData = GetCorrectHTML(File.ReadAllText(path));
             }
 
+            webBrowser.NavigateToString(htmlData ?? Properties.Resources.NewDocument);
             doc = webBrowser.Document as HTMLDocument;
+            doc.designMode = "On";
             doc.charset = "utf-8";
             formatDoc = doc;
         }

@@ -89,25 +89,6 @@ namespace MyHTMLEditor
             wnd.ShowDialog();
         }
 
-        public static bool ButtonSave()
-        {
-            dynamic doc = webBrowser.doc;
-            var htmlText = doc.documentElement.InnerHtml;
-            string path = DialogBox.SaveFile();
-
-            if (path != "")
-            {
-                string imagesRootDir = Misc.GetRootImageDirPath();
-                string html = htmlText.Replace(imagesRootDir.Replace("\\", "/"), "$rootImagesDir$");
-
-                File.WriteAllText(path, html);
-
-                return true;
-            }
-
-            return false;
-        }
-
         public static void FontsCombobox(ComboBox сomboboxFonts)
         {
             var doc = webBrowser.webBrowser.Document as HTMLDocument;
@@ -140,11 +121,6 @@ namespace MyHTMLEditor
         public static void NewDocument()
         {
             webBrowser.NewWb("", Format.doc);
-        }
-
-        public static void NewDocumentFile()
-        {
-            webBrowser.NewWb(DialogBox.SelectFile(), Format.doc);
         }
     }
 }

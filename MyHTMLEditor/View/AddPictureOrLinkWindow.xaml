@@ -9,7 +9,7 @@
         <BitmapImage x:Key="folder" UriSource="/MyHTMLEditor;component/Resources/folder.png" />
     </Window.Resources>
     <StackPanel>
-        <Label Content="Enter text to display:" Margin="15 15 0 0" /> <!--for the image-->
+        <Label Content="Enter text to display:" Margin="15 15 0 0" />
         <TextBox x:Name="descriptionTextBox" Margin="15 0 15 0" />
 
         <Label Content="Enter file path:" Margin="15 15 0 0" x:Name="label" />

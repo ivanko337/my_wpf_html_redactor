@@ -41,14 +41,6 @@ namespace MyHTMLEditor.View
             return this.doc.documentElement.innerHTML;
         }
 
-        private string GetCorrectHTML(string html)
-        {
-            string rootImagesDir = Misc.GetRootImageDirPath();
-            string newHtml = html.Replace("$rootImagesDir$", rootImagesDir.Replace("\\", "/"));
-
-            return newHtml;
-        }
-
         public void NewWb(string path, HTMLDocument formatDoc, string htmlData = null)
         {
             if (webBrowser != null)
@@ -71,7 +63,12 @@ namespace MyHTMLEditor.View
 
             if (path != "")
             {
-                htmlData = GetCorrectHTML(File.ReadAllText(path));
+                htmlData = File.ReadAllText(path);
+            }
+
+            if (htmlData != null)
+            {
+                htmlData = Misc.GetCorrectHTMLData(htmlData);
             }
 
             webBrowser.NavigateToString(htmlData ?? Properties.Resources.NewDocument);

@@ -34,20 +34,25 @@ namespace MyHTMLEditor.View
             }
         }
 
+        public string HTMLToSave
+        {
+            get
+            {
+                return Misc.GetCorrectHTMLToSave(htmlRedactor.GetHTML());
+            }
+        }
+
+        public string RootImagesDir
+        {
+            set
+            {
+                Misc.ImagesRootDir = value;
+            }
+        }
 
         public EditorControl()
         {
             InitializeComponent();
-        }
-
-        private void openButton_Click(object sender, RoutedEventArgs e)
-        {
-            Gui.NewDocumentFile();
-        }
-
-        private void saveButton_Click(object sender, RoutedEventArgs e)
-        {
-            isFileSaved = Gui.ButtonSave();
         }
 
         private void paragraphCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)

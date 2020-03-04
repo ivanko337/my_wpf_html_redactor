@@ -61,7 +61,7 @@ namespace MyHTMLEditor.View
         {
             using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = Misc.GetRootImageDirPath(); //@"C:\"
+                openFileDialog.InitialDirectory = Misc.ImagesRootDir; // Misc.GetRootImageDirPath();
                 openFileDialog.Filter = isImg ? "jpg files (*.jpg)|*.jpg|png files (*.png)|*.png|gif files (*.gif)|*.gif|All files (*.*)|*.*" : "All files (*.*)|*.*";
                 openFileDialog.RestoreDirectory = true;
 

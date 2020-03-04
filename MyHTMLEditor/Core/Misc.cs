@@ -8,6 +8,11 @@ namespace MyHTMLEditor
 {
     static class Misc
     {
+        /// <summary>
+        /// Корневая папка для изображений
+        /// </summary>
+        public static string ImagesRootDir { get; set; }
+
         public static void HideScriptErrors(WebBrowser wb, bool Hide)
         {
             FieldInfo FieldInfoComWebBrowser = typeof(WebBrowser).GetField("_axIWebBrowser2", BindingFlags.Instance | BindingFlags.NonPublic);
@@ -27,38 +32,18 @@ namespace MyHTMLEditor
             ComWebBrowser.GetType().InvokeMember("Silent", BindingFlags.SetProperty, null, ComWebBrowser, new object[] { Hide });
         }
 
-        /// <summary>
-        /// Возвращает путь к корневой папке с изображениями, прочитанный из конфигурации приложения.
-        /// Если в конфиге папка не указана, то создаётся темповая папка, которая и будет использована для изображений.
-        /// Путь к созданной папке записывается в конфиг
-        /// </summary>
-        public static string GetRootImageDirPath()
+        public static string GetCorrectHTMLData(string html)
         {
-            var configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            
-            try
-            {
-                string initialCatalog = configuration.AppSettings.Settings["imagesFolder"].Value;
+            string rootImagesDir = ImagesRootDir;
+            string newHtml = html.Replace("$rootImagesDir$", rootImagesDir.Replace("\\", "/"));
 
-                if (!Directory.Exists(initialCatalog))
-                {
-                    configuration.AppSettings.Settings["imagesFolder"].Value = "";
-                    throw new Exception();
-                }
+            return newHtml;
+        }
 
-                return initialCatalog;
-            }
-            catch
-            {
-                string tempDirectory = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-                Directory.CreateDirectory(tempDirectory);
-
-                configuration.AppSettings.Settings.Add("imagesFolder", tempDirectory);
-                configuration.Save();
-                ConfigurationManager.RefreshSection("appSettings");
-
-                return tempDirectory;
-            }
+        public static string GetCorrectHTMLToSave(string html)
+        {
+            string imagesRootDir = ImagesRootDir;
+            return html.Replace(imagesRootDir.Replace("\\", "/"), "$rootImagesDir$");
         }
     }
 }

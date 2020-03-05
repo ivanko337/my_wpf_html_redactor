@@ -46,16 +46,43 @@ namespace ViewProj
             }
         }
 
+        private string SelectHTMLFileToSave()
+        {
+            using (System.Windows.Forms.SaveFileDialog SaveFileDialog = new System.Windows.Forms.SaveFileDialog())
+            {
+                //SaveFileDialog.InitialDirectory = @"C:\";
+                SaveFileDialog.Filter = "html files (*.html)|*.html";
+                SaveFileDialog.FilterIndex = 2;
+                SaveFileDialog.RestoreDirectory = true;
+
+                if (SaveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    return SaveFileDialog.FileName;
+                }
+                return "";
+            }
+        }
+
         private void openButton_Click(object sender, RoutedEventArgs e)
         {
-            string htmlData = File.ReadAllText(SelectHTMLFile());
+            string filePath = SelectHTMLFile();
+            if (string.IsNullOrEmpty(filePath))
+            {
+                return;
+            }
+
+            string htmlData = File.ReadAllText(filePath);
 
             editorControl.EditorsHTML = htmlData;
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            string filePath = SelectHTMLFile();
+            string filePath = SelectHTMLFileToSave();
+            if (string.IsNullOrEmpty(filePath))
+            {
+                return;
+            }
 
             File.WriteAllText(filePath, editorControl.HTMLToSave);
         }

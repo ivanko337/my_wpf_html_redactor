@@ -19,10 +19,6 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <!--<StackPanel Grid.Column="0" Orientation="Vertical">
-                <Button Content="Open" Margin="3" Padding="3" x:Name="openButton" Click="openButton_Click" />
-                <Button Content="Save" Margin="3" Padding="3" x:Name="saveButton" Click="saveButton_Click" />
-            </StackPanel>-->
             <StackPanel Grid.Column="1" Margin="3" Orientation="Vertical">
                 <ComboBox Width="160" x:Name="paragraphCombobox" HorizontalAlignment="Left" SelectionChanged="paragraphCombobox_SelectionChanged">
                     <ComboBox.ItemTemplate>

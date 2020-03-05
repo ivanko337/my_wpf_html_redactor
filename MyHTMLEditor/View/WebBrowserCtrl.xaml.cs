@@ -76,6 +76,7 @@ namespace MyHTMLEditor.View
             doc.designMode = "On";
             doc.charset = "utf-8";
             formatDoc = doc;
+            Format.doc = doc;
         }
 
         private void Completed(object sender, NavigationEventArgs e)

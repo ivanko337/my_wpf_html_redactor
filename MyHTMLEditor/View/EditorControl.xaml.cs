@@ -102,7 +102,7 @@ namespace MyHTMLEditor.View
 
         private void SettingsRightAlign_Click(object sender, RoutedEventArgs e)
         {
-            Format.Underline();
+            Format.JustifyRight();
         }
 
         private void SettingsLeftAlign_Click(object sender, RoutedEventArgs e)

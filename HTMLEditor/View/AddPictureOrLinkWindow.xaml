@@ -1,0 +1,42 @@
+﻿<Window x:Class="HTMLEditor.View.AddPictureOrLinkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Height="300" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="0.25*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Content="Введите подсказку:" FontSize="15" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox x:Name="altTextBox" Grid.Row="1" Grid.Column="1" Margin="5" FontSize="15" Text="{Binding Path=ResultAlt}" />
+
+        <Label x:Name="label" FontSize="15" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="pathTextBox" Grid.Column="0" Margin="5" FontSize="15" Text="{Binding Path=ResultPath}" />
+            <Button Grid.Column="1" x:Name="openFileDialogButton" Margin="5" Width="30" Click="openFileDialogButton_Click">
+                <Image Source="/HTMLEditor;component/Images/folder.png" Width="16" />
+            </Button>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Ok" x:Name="okButton" FontSize="20" Height="40" Padding="7" Click="okButton_Click" Margin="0 0 10 0" />
+            <Button Content="Cancel" x:Name="cancelButton" FontSize="20" Height="40" Padding="7" Click="cancelButton_Click" Margin="10 0 0 0" />
+        </StackPanel>
+    </Grid>
+</Window>

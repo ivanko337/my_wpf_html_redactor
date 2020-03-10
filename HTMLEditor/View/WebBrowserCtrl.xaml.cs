@@ -13,10 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MyHTMLEditor;
+using HTMLEditor;
 using System.IO;
+using HTMLEditor.Core;
 
-namespace MyHTMLEditor.View
+namespace HTMLEditor.View
 {
     /// <summary>
     /// Interaction logic for WebBrowserControl.xaml

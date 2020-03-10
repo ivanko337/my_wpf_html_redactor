@@ -1,15 +1,11 @@
-﻿<UserControl x:Class="MyHTMLEditor.View.EditorControl"
+﻿<UserControl x:Class="HTMLEditor.View.EditorControl"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyHTMLEditor.View"
-        xmlns:viewModel="clr-namespace:MyHTMLEditor.ViewModel"
+        xmlns:local="clr-namespace:HTMLEditor.View"
         mc:Ignorable="d" 
         Loaded="Ctrl_Loaded">
-    <!--<UserControl.DataContext>
-        <viewModel:EditorControlViewModel />
-    </UserControl.DataContext>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -37,49 +33,49 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
                     <Button x:Name="SettingsBold" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="Bold"> <!--Click="SettingsBold_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/bold.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/bold.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsItalic" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="Italic"> <!--Click="SettingsItalic_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/italic.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/italic.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsUnderLine" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="Underline"> <!--Click="SettingsUnderLine_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/UnderLine.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/UnderLine.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsFontColor" Click="SettingsFontColor_Click" Background="{x:Null}">
-                        <Image Source="/MyHTMLEditor;component/Images/Color.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/Color.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsBackColor" Click="SettingsBackColor_Click" Background="{x:Null}">
-                        <Image Source="/MyHTMLEditor;component/Images/backcolor.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/backcolor.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsAddLink" Click="SettingsAddLink_Click" Background="{x:Null}">
-                        <Image Source="/MyHTMLEditor;component/Images/link.png"  Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/link.png"  Width="16" />
                     </Button>
                     <Button x:Name="SettingsAddImage" Click="SettingsAddImage_Click" Background="{x:Null}">
-                        <Image Source="/MyHTMLEditor;component/Images/image.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/image.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsLeftAlign" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="JustifyLeft"> <!--Click="SettingsLeftAlign_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/LeftAlign.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/LeftAlign.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsCenter2" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="JustifyCenter"> <!--Click="SettingsCenter2_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/center2.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/center2.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsRightAlign" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="JustifyRight"> <!--Click="SettingsRightAlign_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/RightAlign.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/RightAlign.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsCenter" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="JustifyFull"> <!--Click="SettingsJustifyFull_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/center.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/center.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsNumbered" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="InsertOrderedList"> <!--Click="SettingsInsertOrderedList_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/Numbered.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/Numbered.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsBullets" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="InsertUnorderedList"> <!--Click="SettingsBullets_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/bullets.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/bullets.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsOutIdent" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="Outdent"> <!--Click="SettingsOutIdent_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/OutIdent.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/OutIdent.png" Width="16" />
                     </Button>
                     <Button x:Name="SettingsIdent" Command="{Binding TextLayoutRedactCommand}" Background="{x:Null}" CommandParameter="Indent"> <!--Click="SettingsIdent_Click"-->
-                        <Image Source="/MyHTMLEditor;component/Images/ident.png" Width="16" />
+                        <Image Source="/HTMLEditor;component/Images/ident.png" Width="16" />
                     </Button>
                 </StackPanel>
             </StackPanel>

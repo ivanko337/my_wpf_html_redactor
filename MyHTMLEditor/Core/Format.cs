@@ -6,6 +6,14 @@ namespace MyHTMLEditor
     {
         public static HTMLDocument doc;
 
+        public static void LayoutChange(string command)
+        {
+            if (doc != null)
+            {
+                doc.execCommand(command, false, null);
+            }
+        }
+
         public static void Bold()
         {
             if (doc != null)

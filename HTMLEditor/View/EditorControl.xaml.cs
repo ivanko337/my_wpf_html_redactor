@@ -12,9 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MyHTMLEditor.ViewModel;
+using HTMLEditor.Core;
+using HTMLEditor.ViewModel;
 
-namespace MyHTMLEditor.View
+namespace HTMLEditor.View
 {
     /// <summary>
     /// Interaction logic for EditorWindow.xaml
@@ -108,7 +109,7 @@ namespace MyHTMLEditor.View
 
         private void SettingsAddLink_Click(object sender, RoutedEventArgs e)
         {
-            Gui.SettingsAddLink();
+            Gui.AddLink();
         }
 
         private void SettingsAddImage_Click(object sender, RoutedEventArgs e)

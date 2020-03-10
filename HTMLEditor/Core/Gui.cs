@@ -1,10 +1,10 @@
 ﻿using mshtml;
-using MyHTMLEditor.View;
+using HTMLEditor.View;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Controls;
 
-namespace MyHTMLEditor
+namespace HTMLEditor.Core
 {
     public static class Gui
     {
@@ -76,19 +76,30 @@ namespace MyHTMLEditor
             }
         }
 
-        public static void SettingsAddLink()
+        private static void PasteHTML(string data)
         {
-            AddPictureOrLinkWindow wnd = new AddPictureOrLinkWindow(webBrowser.doc, false);
-            wnd.ShowDialog();
-            //HTMLEditor.View.AddPictureOrLinkWindow wnd = new HTMLEditor.View.AddPictureOrLinkWindow(false);
-            //wnd.ShowDialog();
+            dynamic r = Format.doc.selection.createRange();
+            r.pasteHTML(data);
+        }
+
+        public static void AddLink()
+        {
+            AddPictureOrLinkWindow wnd = new AddPictureOrLinkWindow(false);
+            if (wnd.ShowDialog().Value)
+            {
+                string linkStr = string.Format(@"<a href='{0}'target=""_blank"">{1}</a>", wnd.ResultPath, wnd.ResultAlt);
+                PasteHTML(linkStr);
+            }
         }
 
         public static void SettingsAddImage()
         {
-            AddPictureOrLinkWindow wnd = new AddPictureOrLinkWindow(webBrowser.doc);
-            //HTMLEditor.View.AddPictureOrLinkWindow wnd = new HTMLEditor.View.AddPictureOrLinkWindow();
-            wnd.ShowDialog();
+            AddPictureOrLinkWindow wnd = new AddPictureOrLinkWindow();
+            if (wnd.ShowDialog().Value)
+            {
+                string imgStr = string.Format(@"<img alt=""{1}"" src=""{0}"" width=100% height=auto>", wnd.ResultAlt, wnd.ResultPath);
+                PasteHTML(imgStr);
+            }
         }
 
         public static void FontsCombobox(ComboBox сomboboxFonts)

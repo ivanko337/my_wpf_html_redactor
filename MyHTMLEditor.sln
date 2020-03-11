@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyHTMLEditor_", "MyHTMLEditor\MyHTMLEditor_.csproj", "{159407B1-8FFF-4CD1-A6F5-D044CAAEA685}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewProj", "ViewProj\ViewProj.csproj", "{A3AD6F9A-8193-4E43-821A-775401726534}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTMLEditor", "HTMLEditor\HTMLEditor.csproj", "{4E8C7256-7FC4-4EDC-9014-31A947F78B2A}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{159407B1-8FFF-4CD1-A6F5-D044CAAEA685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{159407B1-8FFF-4CD1-A6F5-D044CAAEA685}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{159407B1-8FFF-4CD1-A6F5-D044CAAEA685}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{159407B1-8FFF-4CD1-A6F5-D044CAAEA685}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3AD6F9A-8193-4E43-821A-775401726534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A3AD6F9A-8193-4E43-821A-775401726534}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3AD6F9A-8193-4E43-821A-775401726534}.Release|Any CPU.ActiveCfg = Release|Any CPU

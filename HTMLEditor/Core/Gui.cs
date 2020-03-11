@@ -42,7 +42,7 @@ namespace HTMLEditor.Core
             }
         }
 
-        public static void SettingsFontColor()
+        public static void SelectFontColor()
         {
             webBrowser.doc = webBrowser.webBrowser.Document as HTMLDocument;
             if (webBrowser.doc != null)
@@ -59,7 +59,7 @@ namespace HTMLEditor.Core
             }
         }
 
-        public static void SettingsBackColor()
+        public static void SelectBackColor()
         {
             webBrowser.doc = webBrowser.webBrowser.Document as HTMLDocument;
             if (webBrowser.doc != null)
@@ -92,7 +92,7 @@ namespace HTMLEditor.Core
             }
         }
 
-        public static void SettingsAddImage()
+        public static void AddImage()
         {
             AddPictureOrLinkWindow wnd = new AddPictureOrLinkWindow();
             if (wnd.ShowDialog().Value)
@@ -102,27 +102,27 @@ namespace HTMLEditor.Core
             }
         }
 
-        public static void FontsCombobox(ComboBox сomboboxFonts)
+        public static void SelectFont(ComboBox fontsCombobox)
         {
             var doc = webBrowser.webBrowser.Document as HTMLDocument;
             if (doc != null)
             {
-                doc.execCommand("FontName", false, сomboboxFonts.SelectedItem.ToString());
+                doc.execCommand("FontName", false, fontsCombobox.SelectedItem.ToString());
             }
         }
 
-        public static void FontHeightCombobox(ComboBox сomboboxFontHeight)
+        public static void SelectFontSize(ComboBox fontHeightCombobox)
         {
             IHTMLDocument2 doc = webBrowser.webBrowser.Document as IHTMLDocument2;
             if (doc != null)
             {
-                doc.execCommand("FontSize", false, сomboboxFontHeight.SelectedItem);
+                doc.execCommand("FontSize", false, fontHeightCombobox.SelectedItem);
             }
         }
 
-        public static void FormatCombobox(ComboBox сomboboxFormat)
+        public static void SelectFormat(ComboBox formatCombobox)
         {
-            string id = ((ComboBoxItem)(сomboboxFormat.SelectedItem)).Id;
+            string id = ((ComboBoxItem)(formatCombobox.SelectedItem)).Id;
 
             webBrowser.doc = webBrowser.webBrowser.Document as HTMLDocument;
             if (webBrowser.doc != null)

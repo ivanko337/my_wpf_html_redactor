@@ -69,17 +69,17 @@ namespace HTMLEditor.View
 
         private void paragraphCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Gui.FormatCombobox(paragraphCombobox);
+            Gui.SelectFormat(paragraphCombobox);
         }
 
         private void fontCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Gui.FontsCombobox(fontCombobox);
+            Gui.SelectFont(fontCombobox);
         }
 
         private void fontHeightCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Gui.FontHeightCombobox(fontHeightCombobox);
+            Gui.SelectFontSize(fontHeightCombobox);
         }
 
         private void Ctrl_Loaded(object sender, RoutedEventArgs e)
@@ -99,12 +99,12 @@ namespace HTMLEditor.View
 
         private void SettingsFontColor_Click(object sender, RoutedEventArgs e)
         {
-            Gui.SettingsFontColor();
+            Gui.SelectFontColor();
         }
 
         private void SettingsBackColor_Click(object sender, RoutedEventArgs e)
         {
-            Gui.SettingsBackColor();
+            Gui.SelectBackColor();
         }
 
         private void SettingsAddLink_Click(object sender, RoutedEventArgs e)
@@ -114,7 +114,7 @@ namespace HTMLEditor.View
 
         private void SettingsAddImage_Click(object sender, RoutedEventArgs e)
         {
-            Gui.SettingsAddImage();
+            Gui.AddImage();
         }
     }
 }

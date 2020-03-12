@@ -53,6 +53,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Command.cs" />
     <Compile Include="Core\DialogBox.cs" />
     <Compile Include="Core\Format.cs" />
     <Compile Include="Core\Gui.cs" />

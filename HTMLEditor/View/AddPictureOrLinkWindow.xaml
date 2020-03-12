@@ -19,8 +19,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Label Content="Введите подсказку:" FontSize="15" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-        <TextBox x:Name="altTextBox" Grid.Row="1" Grid.Column="1" Margin="5" FontSize="15" Text="{Binding Path=ResultAlt}" />
+        <Label x:Name="altLabel" Content="Введите подсказку:" FontSize="15" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox x:Name="altTextBox" Grid.Row="1" Grid.Column="1" Margin="5" FontSize="15" />
 
         <Label x:Name="label" FontSize="15" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
         <Grid Grid.Row="3" Grid.Column="1">
@@ -28,7 +28,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="pathTextBox" Grid.Column="0" Margin="5" FontSize="15" Text="{Binding Path=ResultPath}" />
+            <TextBox x:Name="pathTextBox" Grid.Column="0" Margin="5" FontSize="15" />
             <Button Grid.Column="1" x:Name="openFileDialogButton" Margin="5" Width="30" Click="openFileDialogButton_Click">
                 <Image Source="/HTMLEditor;component/Images/folder.png" Width="16" />
             </Button>

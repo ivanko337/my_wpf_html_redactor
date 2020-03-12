@@ -54,7 +54,12 @@ namespace HTMLEditor.View
             {
                 Title = "Вставить ссылку";
                 label.Content = "Ввдите ссылку:";
+                altLabel.Content = "Введите текст";
                 openFileDialogButton.Visibility = Visibility.Collapsed;
+
+                dynamic r = Format.doc.selection.createRange();
+                ResultAlt = r.htmlText;
+                altTextBox.Text = r.htmlText;
             }
         }
 

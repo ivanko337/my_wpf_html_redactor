@@ -78,7 +78,7 @@ namespace HTMLEditor.Core
 
         private static void PasteHTML(string data)
         {
-            dynamic r = Format.doc.selection.createRange();
+            dynamic r = webBrowser.doc.selection.createRange();
             r.pasteHTML(data);
         }
 

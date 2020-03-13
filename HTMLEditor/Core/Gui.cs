@@ -97,7 +97,7 @@ namespace HTMLEditor.Core
             AddPictureOrLinkWindow wnd = new AddPictureOrLinkWindow();
             if (wnd.ShowDialog().Value)
             {
-                string imgStr = string.Format(@"<img alt=""{1}"" src=""{0}"" width=100% height=auto>", wnd.ResultAlt, wnd.ResultPath);
+                string imgStr = string.Format(@"<img alt=""{1}"" src=""{0}"" width=100% height=auto>", wnd.ResultPath, wnd.ResultAlt);
                 PasteHTML(imgStr);
             }
         }

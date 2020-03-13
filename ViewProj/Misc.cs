@@ -43,5 +43,43 @@ namespace ViewProj
                 return tempDirectory;
             }
         }
+
+        public static void CopyImagesToRootDir()
+        {
+            string rootImgDir = GetRootImageDirPath();
+            string sourceImgDir = "E:\\TEST_IMAGES";
+
+            if (!Directory.Exists(sourceImgDir))
+            {
+                return;
+            }
+
+            DirectoryInfo rootImgDirInfo = new DirectoryInfo(rootImgDir);
+            DirectoryInfo sourceImgDirInfo = new DirectoryInfo(sourceImgDir);
+            
+            try
+            {
+                CopyAll(sourceImgDirInfo, rootImgDirInfo);
+            }
+            catch
+            {
+                System.Windows.MessageBox.Show("Не удалось загрузить картинки");
+            }
+        }
+
+        private static void CopyAll(DirectoryInfo source, DirectoryInfo target)
+        {
+            foreach (FileInfo fi in source.GetFiles())
+            {
+                fi.CopyTo(Path.Combine(target.FullName, fi.Name), true);
+            }
+
+            foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
+            {
+                DirectoryInfo nextTargetSubDir =
+                    target.CreateSubdirectory(diSourceSubDir.Name);
+                CopyAll(diSourceSubDir, nextTargetSubDir);
+            }
+        }
     }
 }

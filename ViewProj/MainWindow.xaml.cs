@@ -25,8 +25,6 @@ namespace ViewProj
         public MainWindow()
         {
             InitializeComponent();
-
-            editorControl.RootImagesDir = Misc.GetRootImageDirPath();
         }
 
         private string SelectHTMLFile()
@@ -85,6 +83,12 @@ namespace ViewProj
             }
 
             File.WriteAllText(filePath, editorControl.HTMLToSave);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            editorControl.RootImagesDir = Misc.GetRootImageDirPath();
+            Misc.CopyImagesToRootDir();
         }
     }
 }

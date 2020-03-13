@@ -47,7 +47,7 @@ namespace HTMLEditor.View
         {
             if (isImage)
             {
-                Title = "Выставить картинку";
+                Title = "Вставить картинку";
                 label.Content = "Введите путь к файлу:";
             }
             else
@@ -68,14 +68,11 @@ namespace HTMLEditor.View
             ResultPath = pathTextBox.Text;
             ResultAlt = altTextBox.Text ?? "";
 
-            DialogResult = true;
+            DialogResult = !string.IsNullOrEmpty(ResultPath);
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-            ResultPath = pathTextBox.Text;
-            ResultAlt = altTextBox.Text ?? "";
-
             DialogResult = false;
         }
     }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HTMLEditor.Core;
+using System.IO;
 
 namespace HTMLEditor.View
 {
@@ -65,6 +66,12 @@ namespace HTMLEditor.View
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!File.Exists(pathTextBox.Text))
+            {
+                DialogBox.ShowWarning("Такого файла не существует");
+                return;
+            }
+
             ResultPath = pathTextBox.Text;
             ResultAlt = altTextBox.Text ?? "";
 

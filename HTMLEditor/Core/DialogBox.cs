@@ -68,5 +68,10 @@
                 return SaveFileDialog.FileName;
             }
         }
+
+        public static void ShowWarning(string msg)
+        {
+            System.Windows.MessageBox.Show(msg, "WARNING", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+        }
     }
 }

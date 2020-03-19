@@ -75,9 +75,6 @@
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\EditorControlViewModel.cs" />
-    <Compile Include="View\AddPictureOrLinkWindow.xaml.cs">
-      <DependentUpon>AddPictureOrLinkWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\EditorControl.xaml.cs">
       <DependentUpon>EditorControl.xaml</DependentUpon>
     </Compile>
@@ -100,10 +97,6 @@
     <None Include="Resources\New.html" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\AddPictureOrLinkWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\EditorControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

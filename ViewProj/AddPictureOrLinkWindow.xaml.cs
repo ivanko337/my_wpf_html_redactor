@@ -22,7 +22,6 @@ namespace ViewProj
     public partial class AddPictureOrLinkWindow : Window
     {
         private bool isImage;
-        private string selectedText;
 
         public string ResultAlt { get; set; }
         public string ResultPath { get; set; }

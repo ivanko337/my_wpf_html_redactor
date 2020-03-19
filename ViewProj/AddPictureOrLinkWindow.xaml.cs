@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,16 +13,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HTMLEditor.Core;
-using System.IO;
 
-namespace HTMLEditor.View
+namespace ViewProj
 {
     /// <summary>
     /// Interaction logic for AddPictureOrLinkWindow.xaml
     /// </summary>
     public partial class AddPictureOrLinkWindow : Window
     {
-        bool isImage;
+        private bool isImage;
+        private string selectedText;
 
         public string ResultAlt { get; set; }
         public string ResultPath { get; set; }
@@ -66,7 +67,7 @@ namespace HTMLEditor.View
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!File.Exists(pathTextBox.Text))
+            if (!File.Exists(pathTextBox.Text) && isImage)
             {
                 DialogBox.ShowWarning("Такого файла не существует");
                 return;

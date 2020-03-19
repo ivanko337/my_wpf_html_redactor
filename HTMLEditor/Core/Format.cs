@@ -1,6 +1,6 @@
 ﻿using mshtml;
 
-namespace HTMLEditor
+namespace HTMLEditor.Core
 {
     public static class Format
     {

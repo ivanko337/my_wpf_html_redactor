@@ -22,6 +22,9 @@ namespace HTMLEditor.View
     /// </summary>
     public partial class EditorControl : UserControl
     {
+        public Func<string, UrlToInsert> GetImageFunc { get; set; }
+        public Func<string, UrlToInsert> GetLinkFunc { get; set; }
+
         public string EditorsHTML
         {
             get

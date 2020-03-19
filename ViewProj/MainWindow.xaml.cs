@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HTMLEditor.View;
 using System.IO;
+using HTMLEditor.Core;
 
 namespace ViewProj
 {
@@ -25,6 +26,9 @@ namespace ViewProj
         public MainWindow()
         {
             InitializeComponent();
+
+            Gui.GetImageFunc = GetImage;
+            Gui.GetLinkFunc = GetLink;
         }
 
         private string SelectHTMLFile()
@@ -89,6 +93,32 @@ namespace ViewProj
         {
             editorControl.RootImagesDir = Misc.GetRootImageDirPath();
             Misc.CopyImagesToRootDir();
+        }
+
+        private UrlToInsert GetUrl(bool isImage)
+        {
+            AddPictureOrLinkWindow wnd = new AddPictureOrLinkWindow(isImage);
+
+            if (!wnd.ShowDialog().Value)
+            {
+                return null;
+            }
+
+            return new UrlToInsert()
+            {
+                ResultAlt = wnd.ResultAlt,
+                ResultUrl = wnd.ResultPath
+            };
+        }
+
+        public UrlToInsert GetImage()
+        {
+            return GetUrl(true);
+        }
+
+        public UrlToInsert GetLink()
+        {
+            return GetUrl(false);
         }
     }
 }

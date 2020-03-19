@@ -3,12 +3,16 @@ using HTMLEditor.View;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Controls;
+using System;
 
 namespace HTMLEditor.Core
 {
     public static class Gui
     {
         public static WebBrowserCtrl webBrowser;
+
+        public static Func<UrlToInsert> GetImageFunc { get; set; }
+        public static Func<UrlToInsert> GetLinkFunc { get; set; }
 
         public static List<ComboBoxItem> FormatComboboxData
         {
@@ -84,20 +88,20 @@ namespace HTMLEditor.Core
 
         public static void AddLink()
         {
-            AddPictureOrLinkWindow wnd = new AddPictureOrLinkWindow(false);
-            if (wnd.ShowDialog().Value)
+            var url = GetLinkFunc.Invoke();
+            if (url != null)
             {
-                string linkStr = string.Format(@"<a href='{0}'target=""_blank"">{1}</a>", wnd.ResultPath, wnd.ResultAlt);
+                string linkStr = string.Format(@"<a href='{0}'target=""_blank"">{1}</a>", url.ResultUrl, url.ResultAlt);
                 PasteHTML(linkStr);
             }
         }
 
         public static void AddImage()
         {
-            AddPictureOrLinkWindow wnd = new AddPictureOrLinkWindow();
-            if (wnd.ShowDialog().Value)
+            var url = GetImageFunc?.Invoke();
+            if (url != null)
             {
-                string imgStr = string.Format(@"<img alt=""{1}"" src=""{0}"" width=100% height=auto>", wnd.ResultPath, wnd.ResultAlt);
+                string imgStr = string.Format(@"<img alt=""{1}"" src=""{0}"" width=100% height=auto>", url.ResultUrl, url.ResultAlt);
                 PasteHTML(imgStr);
             }
         }

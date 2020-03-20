@@ -27,8 +27,8 @@ namespace ViewProj
         {
             InitializeComponent();
 
-            Gui.GetImageFunc = GetImage;
-            Gui.GetLinkFunc = GetLink;
+            editorControl.GetImageFunc = GetImage;
+            editorControl.GetLinkFunc = GetLink;
         }
 
         private string SelectHTMLFile()
@@ -52,7 +52,6 @@ namespace ViewProj
         {
             using (System.Windows.Forms.SaveFileDialog SaveFileDialog = new System.Windows.Forms.SaveFileDialog())
             {
-                //SaveFileDialog.InitialDirectory = @"C:\";
                 SaveFileDialog.Filter = "html files (*.html)|*.html";
                 SaveFileDialog.FilterIndex = 2;
                 SaveFileDialog.RestoreDirectory = true;

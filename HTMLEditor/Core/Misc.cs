@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
@@ -39,10 +40,31 @@ namespace HTMLEditor.Core
             return newHtml;
         }
 
+        private static string ReplaceWidthAndHeightFromImages(string html)
+        {
+            var imgMatches = Regex.Matches(html, "<IMG[a-zA-zА-Яа-я\\s\\d\\W]+>$");
+            
+            for (int i = 0; i < imgMatches.Count; ++i)
+            {
+                string match = imgMatches[i].Value.Clone().ToString();
+
+                match = Regex.Replace(match, "\\s*width=\\d{0,}\\s*", "");
+                match = Regex.Replace(match, "\\s*height=\\d{0,}\\s*", "");
+                html = html.Replace(imgMatches[i].Value, match);
+            }
+
+            return html;
+        }
+
         public static string GetCorrectHTMLToSave(string html)
         {
             string imagesRootDir = ImagesRootDir;
-            return html.Replace(imagesRootDir.Replace("\\", "/"), "$rootImagesDir$");
+
+            html = html.Replace(imagesRootDir.Replace("\\", "/"), "$rootImagesDir$");
+
+            html = ReplaceWidthAndHeightFromImages(html);
+
+            return html;
         }
     }
 }

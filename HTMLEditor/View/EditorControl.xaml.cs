@@ -22,8 +22,8 @@ namespace HTMLEditor.View
     /// </summary>
     public partial class EditorControl : UserControl
     {
-        public Func<string, UrlToInsert> GetImageFunc { get; set; }
-        public Func<string, UrlToInsert> GetLinkFunc { get; set; }
+        public Func<UrlToInsert> GetImageFunc { get; set; }
+        public Func< UrlToInsert> GetLinkFunc { get; set; }
 
         public string EditorsHTML
         {
@@ -42,6 +42,7 @@ namespace HTMLEditor.View
             get
             {
                 return Misc.GetCorrectHTMLToSave(htmlRedactor.GetHTML());
+                //return htmlRedactor.GetHTML();
             }
         }
 
@@ -112,12 +113,20 @@ namespace HTMLEditor.View
 
         private void SettingsAddLink_Click(object sender, RoutedEventArgs e)
         {
-            Gui.AddLink();
+            var url = GetLinkFunc?.Invoke();
+            if (url != null)
+            {
+                Gui.AddLink(url.ResultUrl, url.ResultAlt);
+            }
         }
 
         private void SettingsAddImage_Click(object sender, RoutedEventArgs e)
         {
-            Gui.AddImage();
+            var url = GetImageFunc?.Invoke();
+            if (url != null)
+            {
+                Gui.AddImage(url.ResultUrl, url.ResultAlt);
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace HTMLEditor.Core
+﻿using System.Windows.Forms;
+
+namespace HTMLEditor.Core
 {
     public static class DialogBox
     {
@@ -6,13 +8,13 @@
         {
             System.Windows.Media.Color col = new System.Windows.Media.Color();
 
-            using (System.Windows.Forms.ColorDialog colorDialog = new System.Windows.Forms.ColorDialog())
+            using (ColorDialog colorDialog = new ColorDialog())
             {
                 colorDialog.AllowFullOpen = true;
                 colorDialog.FullOpen = true;
-                System.Windows.Forms.DialogResult result = colorDialog.ShowDialog();
+                DialogResult result = colorDialog.ShowDialog();
 
-                if (result == System.Windows.Forms.DialogResult.OK)
+                if (result == DialogResult.OK)
                 {
                     col.A = colorDialog.Color.A;
                     col.B = colorDialog.Color.B;
@@ -28,23 +30,47 @@
             return col;
         }
 
+        private static bool CheckFileDir(string path)
+        {
+            return path.StartsWith(Misc.ImagesRootDir);
+        }
+
         public static string SelectImage()
         {
-            using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = Misc.ImagesRootDir;
                 openFileDialog.Filter = "jpg files (*.jpg)|*.jpg|png files (*.png)|*.png|gif files (*.gif)|*.gif|All files (*.*)|*.*";
                 openFileDialog.RestoreDirectory = true;
 
-                openFileDialog.ShowDialog();
+                string filePath = "";
+                bool isFileDirCoorect = true;
+                do
+                {
+                    if (!isFileDirCoorect)
+                    {
+                        ShowWarning("Вы не можете выбрать изображение из данной папки");
+                    }
 
-                return openFileDialog.FileName;
+                    openFileDialog.InitialDirectory = Misc.ImagesRootDir;
+                    openFileDialog.FileName = "";
+                    
+                    if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+                    {
+                        return "";
+                    }
+
+                    filePath = openFileDialog.FileName;
+                    isFileDirCoorect = CheckFileDir(filePath);
+                } while (!isFileDirCoorect);
+
+                return filePath;
             }
         }
 
+        /*
         public static string SelectHTMLFileToOpen()
         {
-            using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "html files (*.html)|*.html|All files (*.*)|*.*";
                 openFileDialog.RestoreDirectory = true;
@@ -57,7 +83,7 @@
 
         public static string SaveHTMLFileToSave()
         {
-            using (System.Windows.Forms.SaveFileDialog SaveFileDialog = new System.Windows.Forms.SaveFileDialog())
+            using (SaveFileDialog SaveFileDialog = new SaveFileDialog())
             {
                 SaveFileDialog.Filter = "html files (*.html)|*.html";
                 SaveFileDialog.FilterIndex = 2;
@@ -68,6 +94,7 @@
                 return SaveFileDialog.FileName;
             }
         }
+        */
 
         public static void ShowWarning(string msg)
         {

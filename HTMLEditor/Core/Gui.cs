@@ -11,9 +11,6 @@ namespace HTMLEditor.Core
     {
         public static WebBrowserCtrl webBrowser;
 
-        public static Func<UrlToInsert> GetImageFunc { get; set; }
-        public static Func<UrlToInsert> GetLinkFunc { get; set; }
-
         public static List<ComboBoxItem> FormatComboboxData
         {
             get
@@ -86,24 +83,23 @@ namespace HTMLEditor.Core
             r.pasteHTML(data);
         }
 
-        public static void AddLink()
+        private static void AddUrl(string pattern, string url, string alt)
         {
-            var url = GetLinkFunc.Invoke();
-            if (url != null)
+            if (!string.IsNullOrEmpty(pattern) && !string.IsNullOrEmpty(url))
             {
-                string linkStr = string.Format(@"<a href='{0}'target=""_blank"">{1}</a>", url.ResultUrl, url.ResultAlt);
+                string linkStr = string.Format(pattern, url, alt);
                 PasteHTML(linkStr);
             }
         }
 
-        public static void AddImage()
+        public static void AddLink(string url, string alt)
         {
-            var url = GetImageFunc?.Invoke();
-            if (url != null)
-            {
-                string imgStr = string.Format(@"<img alt=""{1}"" src=""{0}"" width=100% height=auto>", url.ResultUrl, url.ResultAlt);
-                PasteHTML(imgStr);
-            }
+            AddUrl(@"<a href='{0}'target=""_blank"">{1}</a>", url, alt);
+        }
+
+        public static void AddImage(string url, string alt)
+        {
+            AddUrl(@"<img alt=""{1}"" src=""{0}"">", url, alt); // width=100% height=100% //style=""HEIGHT: auto; WIDTH: auto""
         }
 
         public static void SelectFont(ComboBox fontsCombobox)

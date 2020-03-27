@@ -32,7 +32,7 @@ namespace HTMLEditor.Core
 
         private static bool CheckFileDir(string path)
         {
-            return path.ToLower().StartsWith(Misc.ImagesRootDir.ToLower());
+            return path.StartsWith(Misc.ImagesRootDir, System.StringComparison.OrdinalIgnoreCase);
         }
 
         public static string SelectImage()

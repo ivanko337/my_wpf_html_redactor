@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Core\Command.cs" />
     <Compile Include="Core\DialogBox.cs" />
+    <Compile Include="Core\Extensions.cs" />
     <Compile Include="Core\Format.cs" />
     <Compile Include="Core\Gui.cs" />
     <Compile Include="Core\ComboBoxItem.cs" />

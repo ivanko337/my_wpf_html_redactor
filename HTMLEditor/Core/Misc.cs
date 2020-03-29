@@ -56,11 +56,32 @@ namespace HTMLEditor.Core
             return html;
         }
 
+        private static string CorrectReplaceRootImgDir(string html)
+        {
+            StringBuilder sb = new StringBuilder(html);
+
+            while (true)
+            {
+                int index = sb.IndexOf(ImagesRootDir.Replace("\\", "/"), ignoreCase: true);
+
+                if (index == -1)
+                {
+                    break;
+                }
+
+                sb.Remove(index, ImagesRootDir.Length);
+                sb.Insert(index, "$rootImagesDir$");
+            }
+
+            return sb.ToString();
+        }
+
         public static string GetCorrectHTMLToSave(string html)
         {
-            string imagesRootDir = ImagesRootDir;
+            //string imagesRootDir = ImagesRootDir;
 
-            html = html.Replace(imagesRootDir.Replace("\\", "/"), "$rootImagesDir$");
+            //html = html.Replace(imagesRootDir.Replace("\\", "/"), "$rootImagesDir$");
+            html = CorrectReplaceRootImgDir(html);
 
             html = ReplaceWidthAndHeightFromImages(html);
 
